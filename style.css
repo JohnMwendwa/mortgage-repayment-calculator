@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ### Primary */
+  --lime: hsl(61, 70%, 52%);
+  --lime-light: hsl(61, 70%, 74%);
+  --red: hsl(4, 69%, 50%);
+
+  /* ### Neutral */
+  --white: hsl(0, 0%, 100%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
+  --slate-950: hsl(202, 55%, 10%);
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--slate-100);
+}
+
+p,
+label {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: var(--slate-700);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .container {
+  --rad: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--white);
+  border-top-left-radius: var(--rad);
+  border-bottom-left-radius: var(--rad);
+}
+
+.form__container {
+  padding: 1.5rem;
+}
+
+.header__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 640px) {
+  .header__group {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  main .container {
+    --rad: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 31.5rem));
+    border-radius: var(--rad);
+  }
+
+  .form__container {
+    padding: 2.625rem;
+  }
+}
+
+main .container h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--slate-900);
+}
+
+main .container .form__clear {
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--slate-700);
+  margin: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+main .container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media screen and (min-width: 768px) {
+  main .container form {
+    gap: 1rem;
+  }
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  outline: transparent;
+  border: 2px solid var(--slate-300);
+}
+
+input[type="radio"] {
+  accent-color: var(--lime);
+}
+
+label.radio {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.5rem;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  color: var(--slate-900);
+  font-weight: 700;
+}
+
+label.radio:has(input[type="radio"]:checked) {
+  background-color: hsl(60deg 71.43% 93.14%);
+  color: var(--slate-900);
+  border: 1px solid var(--lime);
+}
+
+main .container form input {
+  --rad: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--rad);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+main .container form input:focus-visible {
+  border-color: var(--lime);
+}
+
+main .container form input:focus-visible + .icon {
+  background-color: var(--lime);
+  color: var(--slate-900);
+}
+
+main .container form .icon__container {
+  position: relative;
+}
+
+main .container form .icon {
+  --rad: 0.5rem;
+  position: absolute;
+  top: 2px;
+  bottom: -2px;
+  left: 2px;
+  height: calc(100% - 4px);
+  background-color: var(--slate-100);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  font-weight: 700;
+  color: var(--slate-500);
+  border-top-left-radius: calc(var(--rad) - 0.1rem);
+  border-bottom-left-radius: calc(var(--rad) - 0.1rem);
+  translate: all 0.3s ease;
+}
+
+main .container form #mortgage-amount {
+  padding-left: 3.5rem;
+}
+main .container form .icon__years,
+main .container form .icon__percent {
+  right: 2px;
+  left: auto;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: calc(var(--rad) - 0.1rem);
+  border-bottom-right-radius: calc(var(--rad) - 0.1rem);
+}
+main .container form .form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+main .container form .input__group {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+main form button {
+  margin-top: 0.875rem;
+  padding: 0.875rem 2.625rem;
+  background-color: var(--lime);
+  color: var(--slate-900);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 100vw;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 640px) {
+  main .container form .input__group {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.375rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main form button {
+    width: fit-content;
+  }
+}
+
+.results__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--slate-900);
+}
+
+@media screen and (min-width: 768px) {
+  .results__container {
+    padding: 2.625rem;
+    border-top-right-radius: var(--rad);
+    border-bottom-right-radius: var(--rad);
+    border-bottom-left-radius: 6rem;
+  }
+}
+
+.results__guide {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* display: none; */
+}
+
+.results__guide-image {
+  margin-bottom: 1rem;
+}
+
+.results__guide h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.results__guide p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--slate-500);
+}
+
+.results__complete {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+  display: none;
+}
+
+.results__complete h2 {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.results__complete hr {
+  width: 100%;
+  border: 1px solid var(--slate-900);
+  margin: 1.5rem 0;
+}
+.results__complete-total {
+  background-color: var(--slate-950);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border-top: 5px solid var(--lime);
+}
+
+.results__complete-monthly {
+  font-size: 3rem;
+  color: var(--lime);
+  margin-top: 0.5rem;
+}
+
+.results__complete-full {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-top: 0.5rem;
+}
