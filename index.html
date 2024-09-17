@@ -13,7 +13,6 @@
     />
     <!-- Link external stylesheet -->
     <link rel="stylesheet" href="style.css" />
-
     <title>Mortgage repayment calculator</title>
   </head>
   <body>
@@ -27,61 +26,66 @@
           <form class="form">
             <div class="form__group">
               <label for="mortgage-amount">Mortgage Amount</label>
-              <input
-                type="number"
-                id="mortgage-amount"
-                name="mortgage-amount"
-                required
-              />
-              <span class="icon icon__euro">&pound;</span>
+              <div class="icon__container amount">
+                <input
+                  type="number"
+                  id="mortgage-amount"
+                  name="mortgage-amount"
+                />
+                <span class="icon icon__euro">&pound;</span>
+              </div>
+
               <span class="error error__amount"></span>
             </div>
             <div class="input__group">
               <div class="form__group">
                 <label for="mortgage-term">Mortgage Term</label>
-                <input
-                  type="number"
-                  id="mortgage-term"
-                  name="mortgage-term"
-                  required
-                />
-                <span class="icon icon__years">years</span>
+                <div class="icon__container term">
+                  <input
+                    type="number"
+                    id="mortgage-term"
+                    name="mortgage-term"
+                  />
+                  <span class="icon icon__years">years</span>
+                </div>
+
                 <span class="error error__term"></span>
               </div>
               <div class="form__group">
                 <label for="interest-rate">Interest Rate</label>
-                <input
-                  type="number"
-                  id="interest-rate"
-                  name="interest-rate"
-                  required
-                />
-                <span class="icon icon__percent">%</span>
+                <div class="icon__container rate">
+                  <input
+                    type="number"
+                    id="interest-rate"
+                    name="interest-rate"
+                  />
+                  <span class="icon icon__percent">%</span>
+                </div>
                 <span class="error error__rate"></span>
               </div>
             </div>
             <div class="form__group">
-              <label for="mortgage-type">Mortgage Type</label>
-              <div class="radio">
+              <p for="mortgage-type">Mortgage Type</p>
+              <label for="repayment" class="radio">
                 <input
                   type="radio"
                   id="repayment"
                   name="mortgage-type"
                   value="repayment"
-                  required
                 />
-                <label for="repayment">Repayment</label>
-              </div>
-              <div class="radio">
+                Repayment</label
+              >
+
+              <label for="interest-only" class="radio">
                 <input
                   type="radio"
                   id="interest-only"
                   name="mortgage-type"
                   value="interest-only"
-                  required
                 />
-                <label for="interest-only">Interest Only</label>
-              </div>
+                Interest Only</label
+              >
+
               <span class="error error__type"></span>
             </div>
             <button class="form__submit">
@@ -111,7 +115,7 @@
               />
             </div>
             <div class="results__guide-content">
-              <p>Results shown here</p>
+              <h2>Results shown here</h2>
               <p>
                 Complete the form and click “calculate repayments” to see what
                 your monthly repayments would be.
@@ -133,6 +137,7 @@
             <div class="results__complete-total">
               <p>Your monthly repayments</p>
               <h3 class="results__complete-monthly"></h3>
+              <hr />
               <p>Total you'll repay over the term</p>
               <h3 class="results__complete-full"></h3>
             </div>
