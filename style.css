@@ -213,6 +213,22 @@ main .container form .form__group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Style Errors */
+.form__group.error input {
+  border-color: var(--red);
+}
+
+.form__group.error .icon {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.form__group .error {
+  color: var(--red);
+  font-size: 0.875rem;
 }
 
 main .container form .input__group {
@@ -297,7 +313,6 @@ main form button {
 .results__complete {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   height: 100%;
   display: none;
 }
@@ -318,6 +333,7 @@ main form button {
   padding: 2rem;
   border-radius: 0.5rem;
   border-top: 5px solid var(--lime);
+  margin-top: 2rem;
 }
 
 .results__complete-monthly {
